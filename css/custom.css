@@ -1,0 +1,164 @@
+.mobile-header{
+	display: none !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .app-content{
+    display: none;
+  }
+  .mobile-header{
+  	
+	display: block !important;
+	text-align: center;
+  }
+
+  .rounded-circle, .img_cont{
+  	height: 30px;
+  	width: 30px;
+  }
+  .user_info{
+  	margin-top: -30px !important;
+  }
+  .user_info span{
+  	font-size: 15px;
+  	
+  }
+ 
+  body{
+  	background-color: red;
+  }
+  .contacts li{
+  	padding: 0px !important;
+  }
+
+  .desktop-header{
+  	display: none !important;
+  }
+  .card-footer{
+  	padding: 0px !important;
+  }
+  .card-body, .contacts_body{
+  	border-radius: 15px !important;
+  	
+  }
+  .card-slider{
+  	overflow: hidden !important;
+  }
+  .contacts_card{
+  	    max-height: 490px;
+  	    overflow: hidden !important;
+  	    margin-bottom: -25px !important;
+
+  }
+  .mobile-card{
+  	max-height: 130px !important; 
+  }
+  .ready img{
+  	height: 30px !important;
+  }
+  .mic .listening{
+  	font-size: 30px;
+  }
+  .msg_cotainer{
+  	font-size: 12px;
+  	padding: 6px !important;
+  }
+
+  .msg_cotainer_send{
+  	font-size: 12px;
+  	padding: 6px !important;
+  }
+  
+  .img_cont_msg, .user_img_msg{
+  	height: 35px !important;
+    width: 35px !important;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 768px){
+  .app-content{
+    display: none;
+  }
+   .mobile-header{
+	display: block !important;
+	text-align: center;
+  }
+
+   .col-md-4{
+  	flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .col-md-8{
+  	flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .rounded-circle, .img_cont{
+  	height: 70px;
+  	width: 70px;
+  }
+  .user_info{
+  	margin-top: -65px !important;
+  }
+  .user_info span{
+  	font-size: 20px;
+  	
+  }
+  body{
+  	background-color: red;
+  }
+  .contacts li{
+  	padding: 0px !important;
+  }
+
+  .desktop-header{
+  	display: none !important;
+  }
+  .card-footer{
+  	padding: 0px !important;
+  }
+  .card-body, .contacts_body{
+  	border-radius: 15px !important;
+  	
+  }
+  .card-slider{
+  	overflow: hidden !important;
+  }
+  .contacts_card{
+  	    max-height: 500px;
+  	    overflow: hidden !important;
+  	    margin-bottom: -25px !important;
+  	    margin-left: 55px;
+    	margin-right: 55px;
+
+  }
+  .contacts img{
+  	    width: 80%;
+  }
+  .mobile-card{
+  	max-height: 215px !important; 
+  	margin-left: 55px;
+    margin-right: 55px;
+  }
+  .ready img{
+  	height: 50px !important;
+  }
+  .mic .listening{
+  	font-size: 50px;
+  }
+  .msg_cotainer{
+  	font-size: 20px;
+  	padding: 6px !important;
+  }
+
+  .msg_cotainer_send{
+  	font-size: 20px;
+  	padding: 6px !important;
+  }
+  
+  .img_cont_msg, .user_img_msg{
+  	height: 35px !important;
+    width: 35px !important;
+  }
+  
+}
