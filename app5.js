@@ -43,8 +43,7 @@ function addBotItem(text) {
 
 }
 
-
-function playVideo(text) {
+function addUserItem(text) {
   //const d = new Date();
   //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   //const appContent = document.querySelector(".app-content");
@@ -62,14 +61,6 @@ function playVideo(text) {
 
   
   vid.play();
-}
-
-function addUserItem(text) {
-  //const d = new Date();
-  //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-  //const appContent = document.querySelector(".app-content");
-  //appContent.innerHTML += '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + text + '<span class="msg_time_send">'+s+'</span></div><div class="img_cont_msg"><img src="img/user.png" class="rounded-circle user_img_msg"></div></div>';
-  //appContent.scrollTop = appContent.scrollHeight; // scroll to bottom
 }
 
 function displayCurrentTime() {
@@ -132,7 +123,6 @@ try
     recognizedText = ev["results"][0][0]["transcript"];
 
     addUserItem(recognizedText);
-    playVideo(recognizedText)
 
     let promise = apiClient.textRequest(recognizedText);
 
@@ -222,12 +212,10 @@ function testy() {
 }
 
 function foriPhone() {
-  
 
   recognizedText = $('#userMsg').val();
   $('#userMsg').val('');
-  // addUserItem(recognizedText);
-  playVideo(recognizedText)
+  addUserItem(recognizedText);
   
   let promise = apiClient.textRequest(recognizedText);
   
