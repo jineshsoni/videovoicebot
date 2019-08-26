@@ -35,7 +35,6 @@ function gotoReadyState() {
 
 function addBotItem(text) {
 
-  $("#imgperson").attr('src',"person4.gif");
  // const d = new Date();
   //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   //const appContent = document.querySelector(".app-content");
@@ -132,7 +131,6 @@ try
 
 function startListening() {
 
-  $("#imgperson").attr('src',"person4.png");
   gotoListeningState();
   recognition.start();
 }
@@ -218,7 +216,7 @@ function textSpeech1(speech){
   //responsiveVoice.speak(speech.text,"UK English Male");
 }
 var OnFinishedPlaying = function () {
-    $("#imgperson").attr('src',"person4.png");
+  
   };
 
 function textSpeech(speech){

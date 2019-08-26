@@ -37,9 +37,7 @@
         .welcome{
               height: 100%;
               margin: 0;
-              background: #7F7FD5;
-              background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-              background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+              background: black;
         }
 
         input:focus,
@@ -124,13 +122,19 @@
   </head>
   
   <body class="welcome">
-  <div class="container mainscreen" id="progress">
-    <center><img src="img/Ripple.svg" class="img-responsive" align="center" />
-    <h4>Welcome to toshiba, You are about to talk to a service bot. powered by AI.</h4>
-    <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
-   
-    </center>
-  </div>
+
+      <div class="container mainscreen" id="progress">
+          <center><img src="img/Ripple.svg" class="img-responsive" align="center" />
+          <h4>Welcome to toshiba, You are about to talk to a service bot. powered by AI.</h4>
+          <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
+         
+          </center>
+        </div>
+
+      <video width="200"  id="myVideo"  autoplay>
+          <source src="male-intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
  
     <div class="container text-center p-5" id="mainContent" style="display:none">
        <section>
@@ -142,7 +146,7 @@
                <div class="col-md-12" style="overflow: hidden;margin-top: -35px;">
                    <div class="col-md-12">
                     
-                  <img src="person4.png" id="imgperson" class="mb-3 tolk" alt="person"/>
+            
                   
                   </div>
               </div>
@@ -218,27 +222,28 @@
       $('#userMsg').val("hello");
       foriPhone();
       testy();
+      $('#myVideo').play()
     });
+
+    $('#continuebtn').click()
+   
 
   setInterval(function() {
     if(speechSynthesis.speaking)
     {
       //console.log("Still speaking...");
       //$("#stop").show();
-      //$("#imgperson").attr('src',"person.gif");
       //$("#start").hide();
     }
     else
     {
       //console.log("Stopped");
       //$("#stop").hide();
-      //$("#imgperson").attr('src',"person4.png");
       //$("#start").show();
     }
   }, 500);
   $("#stop").click(function() {
     speechSynthesis.cancel();
-    $("#imgperson").attr('src',"person4.png");
   });
   
   
