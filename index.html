@@ -17,11 +17,11 @@
     <script type="text/javascript" src="browserdetect.js"></script>
     
     <script type="text/javascript" src="ApiAi.js"></script>
-    <script type="text/javascript" src="app2.js"></script>
+    <script type="text/javascript" src="app4.js"></script>
     <style>
        section
             {
-              background-color:black !important;  
+              background-color:#000000 !important;  
               margin-top: -25px;
             }
          
@@ -37,9 +37,9 @@
         .welcome{
               height: 100%;
               margin: 0;
-              background: #ffffff;
-              background: -webkit-linear-gradient(to right, #ffffff, #ffffff, #ffffff);
-              background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+              background: #000000;
+              background: -webkit-linear-gradient(to right, #000000, #000000, #000000);
+              background: linear-gradient(to right, #000000, #000000, #000000);
         }
 
         input:focus,
@@ -50,8 +50,8 @@
         }
 
         .body{
-          background: black !important;
-          background-color:black !important;  
+          background: #000000 !important;
+          background-color:#000000 !important;  
       
         }
         .tolk{
@@ -129,7 +129,8 @@
     <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
   </div>
 
-  <video width="300px" height="300px"  id="myVideo" >
+  <video width="300px" height="300px"  id="myVideo" autoplay>
+      <source src="male-intro.mp4" type="video/mp4">
   </video>
  
     <div class="container text-center p-5" id="mainContent" style="display:none">
@@ -203,7 +204,6 @@
       $('#mainContent').attr('style',"display:block");
       $('body').attr('class',"body");
       //responsiveVoice.speak("Hi, Welcome to Toshiba, How may I help you?  Are you looking for mobile devices, memory devices or hard drives?","UK English Male");
-      $('#userMsg').val("hello");
       foriPhone();
       testy();
     });
