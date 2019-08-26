@@ -54,6 +54,11 @@
           background-color:black !important;  
       
         }
+
+        video.background {
+            background: grey
+          }
+
         .tolk{
           min-width:40%;
           height:100% auto;
@@ -126,13 +131,14 @@
   <body class="welcome">
 
       <div class="container mainscreen" id="progress">
-          <center><img src="img/Ripple.svg" class="img-responsive" align="center" />
+          <center>
+          
           <h4>Welcome to an AI powered Video chat bot</h4>
           <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
           </center>
         </div>
 
-      <video width="100px"  id="myVideo" autoplay>
+      <video width="300px"  id="myVideo" autoplay preload="auto">
           <source src="male-intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
