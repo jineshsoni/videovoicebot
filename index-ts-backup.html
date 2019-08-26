@@ -3,7 +3,7 @@
   <head>
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta charset="utf-8"/>
-    <title>Video Chat Bot</title>
+    <title>Chat with Toshiba VoiceChat Agent</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <!--<link rel="stylesheet" href="styles/style.css" >-->
@@ -37,9 +37,9 @@
         .welcome{
               height: 100%;
               margin: 0;
-              background: #ffffff;
-              background: -webkit-linear-gradient(to right, #ffffff, #ffffff, #ffffff);
-              background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+              background: #7F7FD5;
+              background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+              background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
         }
 
         input:focus,
@@ -125,8 +125,11 @@
   
   <body class="welcome">
   <div class="container mainscreen" id="progress">
-    <img class="img-responsive" />
+    <center><img src="img/Ripple.svg" class="img-responsive" align="center" />
+    <h4>Welcome to toshiba, You are about to talk to a service bot. powered by AI.</h4>
     <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
+   
+    </center>
   </div>
  
     <div class="container text-center p-5" id="mainContent" style="display:none">
@@ -184,8 +187,6 @@
   <script type="text/javascript">
 
     $(document).ready(function() {
-
-    $('#continuebtn').click();
 
     $('#userMsg').bind("input paste",function() {
     s = $('#userMsg').val();
