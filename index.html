@@ -128,31 +128,17 @@
     <img class="img-responsive" />
     <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
   </div>
+
+  <video width="300px" height="300px"  id="myVideo" >
+    <source src="male.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
  
     <div class="container text-center p-5" id="mainContent" style="display:none">
        <section>
       <input type="hidden" id = "startSpeech" value="true" />
       <input type="text" name="userMsg" id="userMsg" class="txt" style="caret-color: transparent;background-color:black;border:2px solid black;margin-left: -50px;">
-      <div class="row justify-content-center h-100">
-        <div class="row">
-           <div class="col">
-               <div class="col-md-12" style="overflow: hidden;margin-top: -35px;">
-                   <div class="col-md-12">
-                    
-                  <img src="person4.png" id="imgperson" class="mb-3 tolk" alt="person"/>
-
-                  <video width="100%"  id="myVideo" >
-                    <source src="male.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video>
-                  
-                  </div>
-              </div>
-              
-           </div>
-        </div>
-        
-      </div>
+   
       </section>
       <script>
         if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -229,20 +215,18 @@
     {
       //console.log("Still speaking...");
       //$("#stop").show();
-      //$("#imgperson").attr('src',"person.gif");
       //$("#start").hide();
     }
     else
     {
       //console.log("Stopped");
       //$("#stop").hide();
-      //$("#imgperson").attr('src',"person4.png");
       //$("#start").show();
     }
   }, 500);
   $("#stop").click(function() {
     speechSynthesis.cancel();
-    $("#imgperson").attr('src',"person4.png");
+   
   });
   
   
