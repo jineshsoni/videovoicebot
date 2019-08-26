@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="utf-8"/>
+    <title>Voice Chat bot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!--<link rel="stylesheet" href="styles/style.css" >-->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="js/events.js"></script>
+    <script type="text/javascript" src="browserdetect.js"></script>
+    
+    <script type="text/javascript" src="ApiAi.js"></script>
+    <script type="text/javascript" src="app6.js"></script>
+    <style>
+       section
+            {
+              background-color:black !important;  
+              margin-top: -25px;
+            }
+         
+        .key-img{
+            height: 20%;
+            width: 20%;
+            position: relative;
+            margin-bottom: -25%;
+        }
+        .key{
+            display:block;
+        }
+        .welcome{
+              height: 100%;
+              margin: 0;
+              background: #ffffff;
+              background: -webkit-linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+              background: linear-gradient(to right, #ffffff, #ffffff, #ffffff);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none;
+        }
+
+        .body{
+          background: black !important;
+          background-color:black !important;  
+      
+        }
+
+        video.loading {
+          background: black url(load.gif) center center no-repeat;
+        }
+
+        .tolk{
+          min-width:40%;
+          height:100% auto;
+          position:absolute;
+          height: 400px !important;
+          margin-top: -10px;
+        }
+
+        .mainscreen{
+          width:50%; 
+          height:100%;
+        }
+        @media screen and (max-width:480px){
+            body{
+                overflow-x: hidden;
+                
+            }
+            .mainscreen{
+              width:100%; 
+              height:100%;
+            }
+            img{
+                height:300px;
+                width: 100%;
+                float: right;
+            }
+            .tolk{
+              margin-top: -10px;
+              height: 100% !important;
+              margin-right: -12px;
+            }
+            .key-img{
+              height: 50%;
+              width: 50%;
+              position: relative;
+              margin-top: -100%;
+            }
+            .key{
+                position: relative;
+                width: 60%;
+                float: left;
+                margin-left: -40%;
+                margin-bottom: -8%;
+                margin-top: 5%;
+                padding: 2%;
+                 
+            }
+             
+        }
+
+        @media (min-width:480px) and (max-width:820px){
+
+          .key-img{
+              height: 30%;
+              width: 30%;
+              position: relative;
+              margin-left: -76% !important;
+              margin-top: -50%;
+              
+            }
+            .tolk{
+              margin-left: 20px;
+            }
+        }
+ 
+         
+    </style>
+  </head>
+  
+  <body class="welcome">
+
+      <div class="container mainscreen" id="progress">
+          <center>
+              <img src="loader.svg" class="img-responsive" align="center" />
+          <h4>Welcome to an AI powered Video chat bot</h4>
+          <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
+          </center>
+        </div>
+
+      <video width="100%"  id="myVideo"  poster="data:image/gif,AAAA" preload="auto" style="display:none">
+          <source src="female-intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+ 
+    <div class="container text-center p-5" id="mainContent" style="display:none">
+       <section>
+      <input type="hidden" id = "startSpeech" value="true" />
+      <input type="text" name="userMsg" id="userMsg" class="txt" style="caret-color: transparent;background-color:black;border:2px solid black;margin-left: -50px;">
+      <div class="row justify-content-center h-100">
+        <div class="row">
+           <div class="col">
+               <div class="col-md-12" style="overflow: hidden;margin-top: -35px;">
+                   <div class="col-md-12">
+                    
+                  </div>
+              </div>
+              
+           </div>
+        </div>
+        
+      </div>
+      </section>
+      <script>
+        if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+          //alert("iphone");
+          document.write(`
+                  <span id="hideimg" class="key"><img src="07.gif" class="key-img mx-auto" alt="sd" style=""></span> 
+                  
+                   <div class="col">
+                      <input type="button" id="chatbutton"   id="chatbutton" class="btn btn-secondary btna" value=" Click Me to Ask" > 
+                  </div>
+                  <div class="input-group-append">
+                   
+                    <!--<button type="submit" class="input-group-text btn send_btn" onclick="foriPhone()" id="sendBtn"><i class="fas fa-location-arrow"></i></button>-->
+                  </div>
+                `);
+          }
+           else if(isChrome())
+            {
+             // alert("chrome");
+              document.write(`<div class="app-footer">
+              <div class="app-footer-inner card-footer" style="color: white;">
+                <div class="mic">
+                  <div class="ready align-items-center"><center><p align="center" id="start"><button style="border-radius: 50%;" class="btn btn-round" id="micicon" ><i style="color:red" class="fas fa-microphone text-primary fa-2x mic "></i></button></p> </center></div>
+                  <div class="listening align-items-center"><p align="center" ><span class="listening-1">&#8226;</span><span class="listening-2">&#8226;</span><span class="listening-3">&#8226;</span></p></div>
+                </div>
+                <h5 align="center" id="bottomText"> Press and hold to talk </h5>
+              </div>
+            </div>`);
+            }
+          </script>
+    </div>
+    
+  </body>
+  <script type="text/javascript">
+
+
+
+    $(document).ready(function() {
+
+    $('#userMsg').bind("input paste",function() {
+    s = $('#userMsg').val();
+    setTimeout(function() { 
+            if($('#userMsg').val() == s){
+              //alert($('#userMsg').val())
+              $('#chatbutton').focus();
+              foriPhone();
+            }
+        }, 1000); // 1 sec delay to check.
+
+        }); // End of  keyup function
+
+        }); // End of document.ready
+
+    $(document).ready(function(){
+      $('#action_menu_btn').click(function(){
+        $('.action_menu').toggle();
+      });
+       voices = speechSynthesis.getVoices();
+       msg.lang='en-US';
+
+    });
+    $('#continuebtn').click(function() { 
+      $('#progress').attr('style',"display:none");
+      $('#mainContent').attr('style',"display:block");
+      $('#myVideo').attr('style',"display:block");
+      $('body').attr('class',"body");
+      //responsiveVoice.speak("Hi, Welcome to Toshiba, How may I help you?  Are you looking for mobile devices, memory devices or hard drives?","UK English Male");
+      $('#userMsg').val("hi");
+      foriPhone();
+      testy();
+
+      $('#myVideo').on('loadstart', function (event) {
+        $(this).addClass('loading')
+      });
+      $('#myVideo').on('canplay', function (event) {
+        $(this).removeClass('loading')
+      });
+    });
+
+    // $('#continuebtn').click()
+   
+
+  setInterval(function() {
+    if(speechSynthesis.speaking)
+    {
+      //console.log("Still speaking...");
+      //$("#stop").show();
+      //$("#start").hide();
+    }
+    else
+    {
+      //console.log("Stopped");
+      //$("#stop").hide();
+      //$("#start").show();
+    }
+  }, 500);
+  $("#stop").click(function() {
+    speechSynthesis.cancel();
+  });
+  
+  
+
+  </script>
+  <script>
+     $(document).ready(function(){ 
+
+      $('#userMsg').bind("keypress", function(e){
+   
+       //alert(e.key)
+    })
+      $("#userMsg").keyup(function(){
+      
+        
+      });
+        $('#chatbutton').click(function(){
+            $('#userMsg').focus();
+            
+         });
+        });
+          
+  </script>
+</html>
