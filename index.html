@@ -132,13 +132,13 @@
 
       <div class="container mainscreen" id="progress">
           <center>
-          
+              <img src="loader.svg" class="img-responsive" align="center" />
           <h4>Welcome to an AI powered Video chat bot</h4>
           <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
           </center>
         </div>
 
-      <video width="300px"  id="myVideo"  preload="auto">
+      <video width="100%"  id="myVideo"  preload="auto" style="display:none">
           <source src="male-intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
@@ -228,9 +228,10 @@
     $('#continuebtn').click(function() { 
       $('#progress').attr('style',"display:none");
       $('#mainContent').attr('style',"display:block");
+      $('#myVideo').attr('style',"display:block");
       $('body').attr('class',"body");
       //responsiveVoice.speak("Hi, Welcome to Toshiba, How may I help you?  Are you looking for mobile devices, memory devices or hard drives?","UK English Male");
-      $('#userMsg').val("hello");
+      // $('#userMsg').val("hello");
       foriPhone();
       testy();
     });
