@@ -215,7 +215,7 @@ function foriPhone() {
 
   recognizedText = $('#userMsg').val();
   $('#userMsg').val('');
-  addUserItem(recognizedText);
+  // addUserItem(recognizedText);
   
   let promise = apiClient.textRequest(recognizedText);
   
