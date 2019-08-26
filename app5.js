@@ -210,12 +210,10 @@ function testy() {
     }
   });
 
-  setTimeout(function() { 
-   console.log(text)
+  console.log(text)
   var vid = document.getElementById("myVideo");
   vid.src = "male-intro.mp4";
   vid.play();
-}, 1000); // 1 sec delay to check.
 
   
 }
