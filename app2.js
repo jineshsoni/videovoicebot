@@ -117,7 +117,7 @@ try
   recognition.onresult = function(ev) {
     recognizedText = ev["results"][0][0]["transcript"];
 
-    addUserItem(recognizedText);
+  
 
     let promise = apiClient.textRequest(recognizedText);
 
@@ -137,8 +137,6 @@ try
 }
 
 function startListening() {
-
-
   gotoListeningState();
   recognition.start();
 }
@@ -146,12 +144,7 @@ function startListening() {
 
 function testy() {
   displayCurrentTime();
-  // speech = "Hi, Welcome to Toshiba. How may I help you?";
 
-  var vid = document.getElementById("myVideo");
-  vid.src = "male-intro.mp4";
-  vid.play();
-  
   const startButton = document.querySelector("#micicon");
   
   $("#micicon").on('tapstart', function (e, touch) {
@@ -182,9 +175,7 @@ function testy() {
 
 function foriPhone() {
 
-  recognizedText = $('#userMsg').val();
-  $('#userMsg').val('');
-  addUserItem(recognizedText);
+  
   
   let promise = apiClient.textRequest(recognizedText);
   
@@ -201,7 +192,7 @@ var OnFinishedPlaying = function () {
   };
 
 function textSpeech(speech){
-  responsiveVoice.speak(speech,"UK English Male", {onend: OnFinishedPlaying});
+  // responsiveVoice.speak(speech,"UK English Male", {onend: OnFinishedPlaying});
 
 }
 
