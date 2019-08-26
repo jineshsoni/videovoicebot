@@ -99,9 +99,9 @@ function handleResponse(serverResponse) {
   //   //startListening();
   // });
   // msg.lang='en-US';
-  // if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-  //   textSpeech(speech);
-  // }
+  if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    addUserItem(speech)
+  }
   // else if(isChrome())
   //   textSpeech(speech);
   // else
