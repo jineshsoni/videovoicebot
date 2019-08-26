@@ -209,6 +209,22 @@ function testy() {
         recognition.abort();
     }
   });
+
+  setTimeout(function() { 
+    console.log(text)
+    var vid = document.getElementById("myVideo");
+  
+    if(text.includes('audio')){
+      vid.src = "male-audio.mp4";
+    } else {
+      vid.src = "male-detail.mp4";
+    }
+  
+    
+    vid.play();
+}, 1000); // 1 sec delay to check.
+
+  
 }
 
 function foriPhone() {
