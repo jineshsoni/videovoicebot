@@ -53,7 +53,9 @@ function addUserItem(text) {
   console.log(text)
   var vid = document.getElementById("myVideo");
 
-  if(text.includes('audio')){
+  if(text.includes('hi')){
+    vid.src = "male-intro.mp4";
+  } else if(text.includes('audio')){
     vid.src = "male-audio.mp4";
   } else {
     vid.src = "male-detail.mp4";
@@ -149,6 +151,7 @@ function startListening() {
 
 
 function testy() {
+  addUserItem('hi');
   //textSpeech("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
   displayCurrentTime();
 
@@ -209,13 +212,6 @@ function testy() {
         recognition.abort();
     }
   });
-
-  console.log(text)
-  var vid = document.getElementById("myVideo");
-  vid.src = "male-intro.mp4";
-  vid.play();
-
-  
 }
 
 function foriPhone() {
