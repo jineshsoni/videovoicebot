@@ -55,9 +55,9 @@
       
         }
 
-        video.background {
-            background: grey
-          }
+        video.loading {
+          background: black url(load.gif) center center no-repeat;
+        }
 
         .tolk{
           min-width:40%;
@@ -138,7 +138,7 @@
           </center>
         </div>
 
-      <video width="100%"  id="myVideo"  preload="auto" style="display:none">
+      <video width="100%"  id="myVideo"  poster="data:image/gif,AAAA" preload="auto" style="display:none">
           <source src="male-intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
@@ -197,21 +197,9 @@
   </body>
   <script type="text/javascript">
 
-    $('#myVideo').on('loadstart', function (event) {
-      $(this).addClass('background');
-      $(this).attr("poster", "load.gif");
-    });
 
-    $('#myVideo').on('canplay', function (event) {
-      $(this).removeClass('background');
-      $(this).removeAttr("poster");
-    });
 
     $(document).ready(function() {
-
-      var video = document.getElementById('myVideo'); 
-      video.addEventListener('click',function(){ video.play(); },false);
-      video.play();
 
     $('#userMsg').bind("input paste",function() {
     s = $('#userMsg').val();
@@ -244,6 +232,13 @@
       $('#userMsg').val("hi");
       foriPhone();
       testy();
+
+      $('#myVideo').on('loadstart', function (event) {
+        $(this).addClass('loading')
+      });
+      $('#myVideo').on('canplay', function (event) {
+        $(this).removeClass('loading')
+      });
     });
 
     // $('#continuebtn').click()
