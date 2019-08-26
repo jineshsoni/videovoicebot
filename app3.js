@@ -1,10 +1,6 @@
-const speechPitch = 1.2;
-const speechRate = 1.0;
 const apiClient = new ApiAi.ApiAiClient({accessToken: '6b07a0d9841143c7b923a43449624bd9'});
-var msg = new SpeechSynthesisUtterance('Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?');
 var recognizedText = null;
 var voices=[];
-msg.lang='en-US';
 
 function isChrome() {
   var isChromium = window.chrome,
@@ -35,12 +31,24 @@ function gotoReadyState() {
 
 function addBotItem(text) {
 
-  $("#imgperson").attr('src',"person4.gif");
+  // $("#imgperson").attr('src',"person4.gif");
  // const d = new Date();
   //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   //const appContent = document.querySelector(".app-content");
   //appContent.innerHTML += '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="img/bot.jpg" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + text + '<span class="msg_time">'+s+'</span></div></div>';
   //appContent.scrollTop = appContent.scrollHeight; // scroll to bottom
+
+  console.log(text)
+  var vid = document.getElementById("myVideo");
+
+  if(text.includes('audio')){
+    vid.src = "male-audio.mp4";
+  } else {
+    vid.src = "male-detail.mp4";
+  }
+
+
+  vid.play();
 
 }
 
@@ -68,33 +76,31 @@ function addError(text) {
 function handleResponse(serverResponse) {
 
   const speech = serverResponse["result"]["fulfillment"]["speech"];
-  msg = new SpeechSynthesisUtterance(speech);
-  msg.voice = speechSynthesis.getVoices()[1];
-  //msg.voiceURI =  "Microsoft David Desktop - English (United States)";
-  //msg.name =  "Microsoft David Desktop - English (United States)";
-  msg.lang='en-US';
-  msg.rate = speechRate; 		// 0.1 to 1
-  msg.pitch = speechPitch;
-  msg.text = speech;
+  // msg = new SpeechSynthesisUtterance(speech);
+  // msg.voice = speechSynthesis.getVoices()[1];
+  // msg.lang='en-US';
+  // msg.text = speech;
   
   addBotItem(speech);
   
-  msg.addEventListener("end", function(ev) {
-    //window.clearTimeout(timer);
-    //startListening();
-  });
-  msg.addEventListener("error", function(ev) {
-    //window.clearTimeout(timer);
-    //startListening();
-  });
-  msg.lang='en-US';
-  if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    textSpeech(speech);
-  }
-  else if(isChrome())
-    textSpeech(speech);
-  else
-    textSpeech(speech);
+  // msg.addEventListener("end", function(ev) {
+  //   //window.clearTimeout(timer);
+  //   //startListening();
+  // });
+  // msg.addEventListener("error", function(ev) {
+  //   //window.clearTimeout(timer);
+  //   //startListening();
+  // });
+  // msg.lang='en-US';
+
+
+  // if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  //   textSpeech(speech);
+  // }
+  // else if(isChrome())
+  //   textSpeech(speech);
+  // else
+  //   textSpeech(speech);
 
 }
 function handleError(serverError) {
@@ -139,40 +145,13 @@ function startListening() {
 
 
 function testy() {
-  //textSpeech("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
   displayCurrentTime();
+  // speech = "Hi, Welcome to Toshiba. How may I help you?";
 
-  // Initial feedback message.
-
-  /*msg.volume=1;
-  voices = speechSynthesis.getVoices();
+  var vid = document.getElementById("myVideo");
+  vid.src = "male-intro.mp4";
+  vid.play();
   
-  if (voices.length !== 0) {
-      msg = new SpeechSynthesisUtterance("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
-      msg.lang='en-US';
-      msg.voice = speechSynthesis.getVoices()[1];
-      msg.volume=1;
-      msg.lang='en-US';
-      msg.rate = speechRate;		// 0.1 to 1
-      msg.pitch =  speechPitch; 		//0 to 2
-      msg.lang='en-US';
-      if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        textSpeech("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
-      }
-      else if(isChrome())
-        textSpeech("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
-      else
-        textSpeech("Hi, Welcome to Toshiba. How may I help you?  Are you looking for mobile devices, memory devices or hard drives?");
-  }*/
-  
-  speech = "Hi, Welcome to Toshiba. How may I help you?";
-
-  addBotItem(speech);
-
-  var timer = window.setTimeout(function() { 
-  addBotItem("Are you looking for <a id='suggest1' href='#'>mobile devices</a>, <a id='suggest3' href='#'>memory devices</a> or <a id='suggest3' href='#'>hard drives</a>?");
-  }, 4000);
-
   const startButton = document.querySelector("#micicon");
   
   $("#micicon").on('tapstart', function (e, touch) {
@@ -218,34 +197,12 @@ function textSpeech1(speech){
   //responsiveVoice.speak(speech.text,"UK English Male");
 }
 var OnFinishedPlaying = function () {
-    $("#imgperson").attr('src',"person4.png");
+    // $("#imgperson").attr('src',"person4.png");
   };
 
 function textSpeech(speech){
-
   responsiveVoice.speak(speech,"UK English Male", {onend: OnFinishedPlaying});
-  /*msg1 = new SpeechSynthesisUtterance(speech);
- 
-    var voices=[];
-    var timer1 = setTimeout(function() {
-      voices = speechSynthesis.getVoices();
-      console.log(voices);
 
-      if (voices.length !== 0) {
-        msg1 = new SpeechSynthesisUtterance();
-        msg1.lang = 'en-US';
-        msg1.voice = speechSynthesis.getVoices()[1];
-        speechSynthesis.speak(msg1);
-        clearTimeout(timer1);
-      }
-    }, 200);
-
-    //timer.start();
-    //msg1.voice=voices[2];
-    msg1.lang = 'en-US';
-    msg1.voice = speechSynthesis.getVoices()[1];
-
-    speechSynthesis.speak(msg1);*/
 }
 
 
