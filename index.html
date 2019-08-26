@@ -3,7 +3,7 @@
   <head>
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta charset="utf-8"/>
-    <title>Video Chat Bot</title>
+    <title>Chat with Toshiba VoiceChat Agent</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <!--<link rel="stylesheet" href="styles/style.css" >-->
@@ -17,11 +17,11 @@
     <script type="text/javascript" src="browserdetect.js"></script>
     
     <script type="text/javascript" src="ApiAi.js"></script>
-    <script type="text/javascript" src="app4.js"></script>
+    <script type="text/javascript" src="app3.js"></script>
     <style>
        section
             {
-              background-color:#000000 !important;  
+              background-color:black !important;  
               margin-top: -25px;
             }
          
@@ -37,9 +37,9 @@
         .welcome{
               height: 100%;
               margin: 0;
-              background: #000000;
-              background: -webkit-linear-gradient(to right, #000000, #000000, #000000);
-              background: linear-gradient(to right, #000000, #000000, #000000);
+              background: #7F7FD5;
+              background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+              background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
         }
 
         input:focus,
@@ -50,8 +50,8 @@
         }
 
         .body{
-          background: #000000 !important;
-          background-color:#000000 !important;  
+          background: black !important;
+          background-color:black !important;  
       
         }
         .tolk{
@@ -125,19 +125,32 @@
   
   <body class="welcome">
   <div class="container mainscreen" id="progress">
-    <img class="img-responsive" />
+    <center><img src="img/Ripple.svg" class="img-responsive" align="center" />
+    <h4>Welcome to toshiba, You are about to talk to a service bot. powered by AI.</h4>
     <input class="btn btn-primary" id="continuebtn" type="button" value="Continue" />
+   
+    </center>
   </div>
-
-  <video width="300px" height="300px"  id="myVideo" autoplay>
-      <source src="male-intro.mp4" type="video/mp4">
-  </video>
  
     <div class="container text-center p-5" id="mainContent" style="display:none">
        <section>
       <input type="hidden" id = "startSpeech" value="true" />
       <input type="text" name="userMsg" id="userMsg" class="txt" style="caret-color: transparent;background-color:black;border:2px solid black;margin-left: -50px;">
-   
+      <div class="row justify-content-center h-100">
+        <div class="row">
+           <div class="col">
+               <div class="col-md-12" style="overflow: hidden;margin-top: -35px;">
+                   <div class="col-md-12">
+                    
+                  <img src="person4.png" id="imgperson" class="mb-3 tolk" alt="person"/>
+                  
+                  </div>
+              </div>
+              
+           </div>
+        </div>
+        
+      </div>
       </section>
       <script>
         if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -175,8 +188,6 @@
 
     $(document).ready(function() {
 
-    $('#continuebtn').click();
-
     $('#userMsg').bind("input paste",function() {
     s = $('#userMsg').val();
     setTimeout(function() { 
@@ -204,6 +215,7 @@
       $('#mainContent').attr('style',"display:block");
       $('body').attr('class',"body");
       //responsiveVoice.speak("Hi, Welcome to Toshiba, How may I help you?  Are you looking for mobile devices, memory devices or hard drives?","UK English Male");
+      $('#userMsg').val("hello");
       foriPhone();
       testy();
     });
@@ -213,18 +225,20 @@
     {
       //console.log("Still speaking...");
       //$("#stop").show();
+      //$("#imgperson").attr('src',"person.gif");
       //$("#start").hide();
     }
     else
     {
       //console.log("Stopped");
       //$("#stop").hide();
+      //$("#imgperson").attr('src',"person4.png");
       //$("#start").show();
     }
   }, 500);
   $("#stop").click(function() {
     speechSynthesis.cancel();
-   
+    $("#imgperson").attr('src',"person4.png");
   });
   
   
