@@ -43,7 +43,8 @@ function addBotItem(text) {
 
 }
 
-function addUserItem(text) {
+
+function playVideo(text) {
   //const d = new Date();
   //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
   //const appContent = document.querySelector(".app-content");
@@ -61,6 +62,14 @@ function addUserItem(text) {
 
   
   vid.play();
+}
+
+function addUserItem(text) {
+  //const d = new Date();
+  //const s = d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+  //const appContent = document.querySelector(".app-content");
+  //appContent.innerHTML += '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + text + '<span class="msg_time_send">'+s+'</span></div><div class="img_cont_msg"><img src="img/user.png" class="rounded-circle user_img_msg"></div></div>';
+  //appContent.scrollTop = appContent.scrollHeight; // scroll to bottom
 }
 
 function displayCurrentTime() {
@@ -99,9 +108,9 @@ function handleResponse(serverResponse) {
   //   //startListening();
   // });
   // msg.lang='en-US';
-  if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    addUserItem(speech)
-  }
+  // if (/webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  //   textSpeech(speech);
+  // }
   // else if(isChrome())
   //   textSpeech(speech);
   // else
@@ -123,6 +132,7 @@ try
     recognizedText = ev["results"][0][0]["transcript"];
 
     addUserItem(recognizedText);
+    playVideo(recognizedText)
 
     let promise = apiClient.textRequest(recognizedText);
 
@@ -212,10 +222,12 @@ function testy() {
 }
 
 function foriPhone() {
+  
 
   recognizedText = $('#userMsg').val();
   $('#userMsg').val('');
   // addUserItem(recognizedText);
+  playVideo(recognizedText)
   
   let promise = apiClient.textRequest(recognizedText);
   
